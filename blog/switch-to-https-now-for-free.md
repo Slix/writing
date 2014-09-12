@@ -103,7 +103,7 @@ Go back to StartSSL's control panel and click the "Certificates Wizard" tab, and
 <img src="/assets/images/blog/https/ssl-12-cert-begin.png" class="block upper border" />
 
 Since we generated our own private key, you can hit "**Skip**" here.
-
+ca
 <img src="/assets/images/blog/https/ssl-13-cert-key-skip.png" class="block upper border" />
 
 Then, paste in the contents of the .csr file we generated earlier.
@@ -147,7 +147,7 @@ wget https://www.startssl.com/certs/class1/sha2/pem/sub.class1.server.sha2.ca.pe
 Then concatenate your certificate with theirs:
 
 ```bash
-cat mydomain.com.crt sub.class1.server.ca.pem > unified.crt
+cat mydomain.com.crt sub.class1.server.sha2.ca.pem > unified.crt
 ```
 
 Finally, tell your web server about your unified certificate, and your decrypted private key. I use nginx — below is the bare minimum nginx configuration you need. It redirects all HTTP requests to HTTPS requests using a 301 permanent redirect, and points the server to the certificate and key.
